@@ -33,3 +33,8 @@ When you see this success message you can unplug the unit from the USB Type-C ca
 
 <img width="292" height="209" alt="image" src="https://github.com/user-attachments/assets/723e8929-61a3-4c65-aab7-5e8563f2e156" />
 
+## Batch flashing
+
+Download the flash_loop.ps1 along with [https://github.com/espressif/esptool/releases](esptool). Save them both to the same directory as the factory-firmware.bin and run it in powershell.
+
+<img width="1103" height="639" alt="image" src="https://github.com/user-attachments/assets/0bd125d0-8607-4eac-a6ec-146358da5114" />
