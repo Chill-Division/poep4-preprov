@@ -1,6 +1,6 @@
 # These substitutions allow the end user to override certain values
 substitutions:
-  name: "PoEP4"
+  name: "poep4"
   friendly_name: "PoEP4"
 
 esphome:
