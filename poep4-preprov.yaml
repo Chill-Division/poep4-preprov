@@ -15,7 +15,7 @@ esphome:
   # configuration and updates.
   project:
     name: chill-division.poep4-preprov
-    version: "1.0"
+    version: "2.0"
 
 esp32:
   # Using the generic P4 board target
@@ -37,7 +37,10 @@ esp32:
 logger:
 
 # API is a requirement of the dashboard import.
+# Encryption is on, with no key here on purpose. Home Assistant gives each
+# device its own random key when it's added, and the device keeps it.
 api:
+  encryption:
 
 # OTA is required for Over-the-Air updating
 ota:
@@ -45,7 +48,7 @@ ota:
 
 # This should point to the public location of this yaml file.
 dashboard_import:
-  package_import_url: github://Chill-Division/poep4-preprov/poep4-preprov.yaml@v1
+  package_import_url: github://Chill-Division/poep4-preprov/poep4-preprov.yaml@v2
   import_full_config: true
 
 # Network interface for Unit PoE P4
