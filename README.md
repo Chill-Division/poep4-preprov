@@ -1,6 +1,12 @@
 # poep4-preprov
 M5Stack PoE P4 unit preprovisioning files
 
+## v2: encryption on by default
+
+v2 (November 2026) turns on encryption for the connection between the PoE-P4 and Home Assistant. There's no key in the firmware. When you add the unit to Home Assistant, Home Assistant gives it its own random key and passes it to the ESPHome app as well, so there's nothing to set up.
+
+v1 units still work, but they talk to Home Assistant unencrypted until you turn encryption on in ESPHome.
+
 ## Installation instructions
 
 Download the Factory Bin firmware from the [Releases page](https://github.com/Chill-Division/poep4-preprov/releases).
@@ -33,8 +39,10 @@ When you see this success message you can unplug the unit from the USB Type-C ca
 
 <img width="292" height="209" alt="image" src="https://github.com/user-attachments/assets/723e8929-61a3-4c65-aab7-5e8563f2e156" />
 
+Re-using a unit that's been set up before? It keeps the key from last time unless its flash is erased first. The batch script below erases each unit before flashing it.
+
 ## Batch flashing
 
-Download the flash_loop.ps1 along with [https://github.com/espressif/esptool/releases](esptool). Save them both to the same directory as the factory-firmware.bin and run it in powershell.
+Download the flash_loop.ps1 along with [esptool](https://github.com/espressif/esptool/releases). Save them both to the same directory as poep4-firmware.factory.bin and run it in PowerShell. It erases each unit before flashing it, so a re-used unit doesn't keep an old key.
 
 <img width="1103" height="639" alt="image" src="https://github.com/user-attachments/assets/0bd125d0-8607-4eac-a6ec-146358da5114" />

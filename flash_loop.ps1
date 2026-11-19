@@ -1,6 +1,6 @@
 # Paths aligned to your standalone exe directory
 $Esptool = "esptool.exe"
-$Firmware = "poep4-preprov-v1.factory.bin"
+$Firmware = "poep4-firmware.factory.bin"
 $Baud = "460800"
 $Count = 1
 
@@ -28,7 +28,9 @@ while ($true) {
     Write-Host "Flashing... Do not unplug."
     
     # The '&' tells PowerShell to execute the path string as an application
-    & $Esptool --chip esp32p4 --baud $Baud --before default-reset --after hard-reset write_flash 0x0 $Firmware
+    # --erase-all wipes the whole flash first, so a re-used unit loses its old
+    # encryption key and settings.
+    & $Esptool --chip esp32p4 --baud $Baud --before default-reset --after hard-reset write-flash --erase-all 0x0 $Firmware
 
     if ($LASTEXITCODE -eq 0) {
         Write-Host "SUCCESS: Unit #$Count flashed successfully!"
